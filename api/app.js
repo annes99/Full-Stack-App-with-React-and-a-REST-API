@@ -7,7 +7,7 @@ const { sequelize } = require('./db');
 const routes = require('./routes/routes');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-
+const cors = require('cors');
 
 
 // Variable to enable global error logging
@@ -18,6 +18,10 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(expressValidator());
+app.use(cors());
+
+// Enabling CORS Pre-Flight
+app.options('*', cors());
 
 // Setup morgan which gives us http request logging
 app.use(morgan('dev'));
@@ -68,5 +72,5 @@ app.set('port', process.env.PORT || 5000);
 
 // Start listening on our port
 const server = app.listen(app.get('port'), () => {
-  console.log(`Express server is listening on port ${server.address().port}`);
+  console.log(`CORS-enabled Express server is listening on port ${server.address().port}`);
 });
