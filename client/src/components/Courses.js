@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 class Courses extends Component {
     constructor() {
@@ -11,13 +12,15 @@ class Courses extends Component {
     }
 
     componentDidMount() {
-    fetch('http://localhost:5000/api/courses')
-    .then(res => res.json())
-    .then((data) => {
-        this.setState({ courses: data.courses});
-    })
-    .catch(console.log);
+    axios.get('http://localhost:5000/api/courses')
+        //.then(response => console.log(response.data.courses));
+        .then(response => {
+            this.setState({ courses: response.data.courses});
+        })
+        .catch(console.log);
     }
+
+    
 
     render() {  
         return (
