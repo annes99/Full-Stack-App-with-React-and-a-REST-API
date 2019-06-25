@@ -23,7 +23,19 @@ class CourseDetail extends Component {
             this.setState({ course: response.data.course, user: response.data.course.User});
             console.log(response.data.course);
         })
-        .catch(console.log);
+        .catch((err) => {
+            console.log(err);
+    }
+
+    handleRemove = (e) => {
+        e.preventDefault();
+        axios.delete(`http://localhost:5000/api/courses/${this.props.match.params.id}`)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     render() {
@@ -34,7 +46,7 @@ class CourseDetail extends Component {
                         <div className="grid-100">
                             <span>
                                 <NavLink to={`/courses/${this.state.course.id}/update`} className="button">Update Course</NavLink>
-                                <NavLink to='/tosomewhere' className="button">Delete Course</NavLink>
+                                <NavLink to={`/courses/${this.state.course.id}`} onClick={this.handleRemove} className="button">Delete Course</NavLink>
                             </span>
                             <NavLink to='/' className="button button-secondary">Return to List</NavLink>
                         </div>
