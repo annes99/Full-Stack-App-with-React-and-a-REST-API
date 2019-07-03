@@ -5,28 +5,22 @@ import { Consumer } from '../components/Context';
 
 class UserSignIn extends Component {
 
-    // when i click sign in i have to call sign in function in app.js with email aadress and password as parameters
-
-    constructor() { //<----Method
+    constructor() {
         super();
-        this.state = { //<----Initialize state
+        this.state = { 
             emailAddress: '',
             password: ''
         };
         this.handleChange = this.handleChange.bind(this);
-        
-      }
+    }
     
-        handleChange(e){
-            this.setState({
-                [e.target.name]: e.target.value
-            });
-        }
-
-      // sally@jones.com, sallypassword
+    handleChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
 
     render() {
-
         return (
             <Consumer>
             {value => (
@@ -58,7 +52,7 @@ class UserSignIn extends Component {
                                 </div>
                                 <div className="grid-100 pad-bottom">
                                     <NavLink
-                                        to='/courses' 
+                                        to='/' 
                                         className="button"
                                         onClick={()=> value.signIn(this.state.emailAddress, this.state.password)}
                                         >Sign In</NavLink>
@@ -70,16 +64,10 @@ class UserSignIn extends Component {
                         <p>Don't have a user account? <NavLink to='/signup'>Click here</NavLink> to sign up!</p>
                     </div>
                 </div> 
-
-
             )}
-                
-
-
             </Consumer>
         );
     }
-
 }
 
 export default UserSignIn;
