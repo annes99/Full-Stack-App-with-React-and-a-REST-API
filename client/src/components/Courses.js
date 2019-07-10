@@ -7,33 +7,33 @@ class Courses extends Component {
         super();
         // keeping all fetched data states
         this.state = {
-          courses: [],
+            courses: []
         };
     }
-
+    // when component mounts GET current course data and update this.state with response values
     componentDidMount() {
-    axios.get('http://localhost:5000/api/courses')
-        //.then(response => console.log(response.data.courses));
-        .then(response => {
-            this.setState({ courses: response.data.courses});
-        })
-        .catch(console.log);
+        axios.get('http://localhost:5000/api/courses')
+            .then(res => {
+                this.setState({ courses: res.data.courses });
+            })
+            .catch(console.log);
     }
 
     
 
-    render() {  
+    render() {
         return (
             <div className="bounds">
-                {this.state.courses.map((course) => 
-                <div className="grid-33" key={course.id}>
-                    <NavLink to={`/courses/${course.id}`} className="course--module course--link">
-                        <h4 className="course--label">Course</h4>
-                        <h3 className="course--title">{course.title}</h3>                            
-                    </NavLink> 
-                </div>
+                {/* map through courses in current state and show them */}
+                {this.state.courses.map((course) =>
+                    <div className="grid-33" key={course.id}>
+                        <NavLink to={`/courses/${course.id}`} className="course--module course--link">
+                            <h4 className="course--label">Course</h4>
+                            <h3 className="course--title">{course.title}</h3>
+                        </NavLink>
+                    </div>
                 )}
-            
+
                 <div className="grid-33">
                     <NavLink to='/courses/create' className="course--module course--add--module">
                         <h3 className="course--add--title">
@@ -47,13 +47,11 @@ class Courses extends Component {
                                 <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 " />
                             </svg>New Course
                         </h3>
-                    </NavLink> 
+                    </NavLink>
                 </div>
             </div>
-
         )
     }
-
 }
 
 export default Courses;
