@@ -71,7 +71,7 @@ class CreateCourse extends Component {
                     <h1>Create Course</h1>
                     <div>
                         {/* checking if theres any errors, if so show them */}
-                        {this.state.error != ''? (
+                        {this.state.error !== ''? (
                             <div>
                                 <h2 className="validation--errors--label">Validation errors</h2>
                                 <div className="validation-errors">

@@ -82,7 +82,7 @@ class UpdateCourse extends Component {
         return (
             <div className="bounds course--detail">
             <h1>Update Course</h1>
-                {this.state.error != '' ? (
+                {this.state.error !== '' ? (
                     <div>
                         <h2 className="validation--errors--label">Validation errors</h2>
                         <div className="validation-errors">
