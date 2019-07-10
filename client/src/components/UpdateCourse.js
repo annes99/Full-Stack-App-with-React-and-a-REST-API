@@ -19,7 +19,7 @@ class UpdateCourse extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    // when components mounts GET the current course data, update course input fields are pre filled
+    // when components mounts GET the current course data, so update course input fields are pre filled
     async componentDidMount() {
         const id = await this.props.match.params.id;
 
