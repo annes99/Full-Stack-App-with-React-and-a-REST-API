@@ -40,4 +40,4 @@ Start the application.
 ```
 npm start
 ```
-If the development server started but it didn't open in the browser, try manually browsing to it at [http://localhost:5000/](http://localhost:5000/).
+If the development server started but it didn't open in the browser, try manually browsing to it at [http://localhost:3000/](http://localhost:3000/).
