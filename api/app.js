@@ -12,13 +12,17 @@ const cors = require('cors');
 
 // Variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
+const corsOptions = {
+  exposedHeaders: ['Access-Control-Expose-Headers,Location']
+    
+};
 
 // Create the Express app
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(expressValidator());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Enabling CORS Pre-Flight
 app.options('*', cors());
