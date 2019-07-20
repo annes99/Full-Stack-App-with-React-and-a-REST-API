@@ -9,12 +9,14 @@
 * Implemented validations within your route handlers with express-validator
 * JavaScript and JSX to build out the components for your application in a modular fashion
 * React Router to set up routes
+* Axios to fetch data from REST API
 * Allow users to sign up and use basic authentication to support users signing in
 
 ## Technologies
 
 * JavaScript
 * React
+* JSX
 * SQL
 * ORM Sequelize
 * Node.js
